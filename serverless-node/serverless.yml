@@ -1,0 +1,26 @@
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+service: nativesamples
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: nodejs10.x
+  stage: local
+
+functions:
+  api:
+    handler: src/handler.api
+    events:
+      - http:
+          path: docs
+          method: get
+          cors: true
+          timeout: 30
+      - http:
+          path: test
+          method: get
+          cors: true
+          timeout: 30

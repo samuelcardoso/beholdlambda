@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log
+newrelic_agent.log
+coverage
+.nyc_output
+.serverless
+.env
+.build
+.DS_Store
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+logs/*
+files/*
+test/import/ccpr
