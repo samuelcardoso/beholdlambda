@@ -9,8 +9,7 @@ namespace AwsDotnetCsharp
     {
        public Response Hello(Request request)
        {
-           System.Threading.Thread.Sleep(1000);
-           return new Response("Go Serverless v1.0! Your function executed successfully!", request);
+           return new Response("Hello World", request);
        }
     }
 
