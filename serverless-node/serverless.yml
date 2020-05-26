@@ -2,25 +2,19 @@ plugins:
   - serverless-plugin-typescript
   - serverless-offline
 
-service: nativesamples
+service: nodelambda
 
 provider:
   name: aws
   region: us-east-1
   runtime: nodejs10.x
-  stage: local
+  stage: lab
 
 functions:
-  api:
-    handler: src/handler.api
+  hello:
+    handler: src/handler.hello
     events:
       - http:
-          path: docs
+          path: hello
           method: get
           cors: true
-          timeout: 30
-      - http:
-          path: test
-          method: get
-          cors: true
-          timeout: 30

@@ -36,7 +36,6 @@ public class ApiGatewayResponse {
 		return headers;
 	}
 
-	// API Gateway expects the property to be called "isBase64Encoded" => isIs
 	public boolean isIsBase64Encoded() {
 		return isBase64Encoded;
 	}
