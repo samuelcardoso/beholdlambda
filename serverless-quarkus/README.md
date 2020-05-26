@@ -1,7 +1,15 @@
-# TO RUN
 Ref: https://quarkus.io/guides/amazon-lambda
 Ref 2: https://github.com/jOOQ/jOOQ/issues/8779
 Ref 3: https://quarkus.io/guides/writing-native-applications-tips
+
+# TO RUN
+sudo update-alternatives --config java
+export JAVA_HOME=/usr/lib/jvm/graalvm
+export GRAALVM_HOME=/usr/lib/jvm/graalvm
+mvn clean
+mvn package -Pnative
+
+# TO RUN NATIVE
 1) Install GRAALVM 19.3.1
 2) Install SAM
 3) export JAVA_HOME=/usr/lib/jvm/graalvm
