@@ -1,0 +1,21 @@
+service: quarkuslambda
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: provided
+  stage: lab
+  environment:
+    DISABLE_SIGNAL_HANDLERS: true
+
+package:
+  artifact: target/function.zip
+
+functions:
+  hello:
+    handler: not.used.in.provided.runtimei
+    events:
+      - http:
+          path: hello
+          method: get
