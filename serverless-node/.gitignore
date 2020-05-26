@@ -15,4 +15,4 @@ coverage
 logs/*
 files/*
 test/import/ccpr
-.package-lock.json
+package-lock.json
