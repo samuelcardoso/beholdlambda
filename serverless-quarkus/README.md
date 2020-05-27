@@ -7,8 +7,7 @@ sudo update-alternatives --config java
 export JAVA_HOME=/usr/lib/jvm/graalvm
 export GRAALVM_HOME=/usr/lib/jvm/graalvm
 mvn clean
-#mvn package -Pnative
-mvn clean install -Pnative -Dnative-image.docker-build=true
+mvn package -Pnative
 
 # TO RUN NATIVE
 1) Install GRAALVM 19.3.1
