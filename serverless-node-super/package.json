@@ -1,0 +1,89 @@
+{
+  "name": "beholderlambda-node-super",
+  "version": "1.0.0",
+  "description": "Boilerplate Beholder Lambda",
+  "scripts": {
+    "clean": "rimraf .build && rimraf .serverless",
+    "build": "npm run clean && tsc",
+    "start": "npm run-script build && cross-env NODE_ENV=dev ./node_modules/.bin/serverless offline -s lab",
+    "debug": "npm run-script build && cross-env NODE_ENV=dev DEBUG=* node --inspect ./node_modules/.bin/serverless offline --noTimeout -s lab",
+    "deploy": "npm run-script build && serverless deploy -s lab",
+    "test:unit": "nyc --silent ts-mocha -p tsconfig.json src/**/**/*.spec.ts src/**/*.spec.ts",
+    "lint": "eslint --ignore-path .eslintignore --quiet '*/**/*.ts' --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelcardoso/beholdlambda.git"
+  },
+  "author": "Samuel Almeida Cardoso (samuelparacontato@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelcardoso/beholdlambda.git/issues"
+  },
+  "eslintIgnore": [
+    "*.spec.ts"
+  ],
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "check-coverage": true,
+    "lines": 65
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test:unit && npm run build"
+    }
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "@hapi/joi": "^17.1.1",
+    "chai": "^4.2.0",
+    "crypto": "^1.0.1",
+    "joi-to-swagger": "^4.0.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "node-fetch": "^2.6.0",
+    "source-map-support": "^0.5.19",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.51",
+    "@types/chai": "^4.2.11",
+    "@types/hapi__joi": "^17.1.0",
+    "@types/lodash": "^4.14.151",
+    "@types/mocha": "^7.0.2",
+    "@types/moment-timezone": "^0.5.13",
+    "@types/node": "^13.13.5",
+    "@types/sequelize": "^4.28.8",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^4.2.5",
+    "mocha": "^7.2.0",
+    "nyc": "^15.0.1",
+    "path": "^0.12.7",
+    "rimraf": "^3.0.2",
+    "sequelize-auto": "^0.4.29",
+    "serverless": "^1.70.0",
+    "serverless-api-gateway-caching": "^1.4.1",
+    "serverless-offline": "5.12.1",
+    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-prune-plugin": "^1.4.2",
+    "ts-mocha": "^7.0.0",
+    "typescript": "^3.8.3"
+  }
+}

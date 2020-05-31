@@ -1,0 +1,96 @@
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-api-gateway-caching
+  - serverless-prune-plugin
+
+service: beholder-node-super
+
+custom:
+  stage: ${opt:stage, 'lab'}
+  secrets: ${file(./serverless.env.yml):${self:custom.stage}.secrets}
+  prune:
+    automatic: true
+    number: 2
+  apiGatewayCaching:
+    enabled: false
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${self:custom.stage}
+  region: us-east-1
+  timeout: 30
+  vpc: ${file(./serverless.env.yml):${self:custom.stage}.vpc}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "kms:Decrypt"
+        - "rds:*"
+      Resource: "*"
+  environment:
+    DB_HOST: ${self:custom.secrets.DB_HOST}
+    DB_USER: ${self:custom.secrets.DB_USER}
+    DB_PASS: ${self:custom.secrets.DB_PASS}
+
+package:
+  individually: false
+  exclude:
+    - ./.git
+    - ./.hooks/**
+    - ./.serverless/**
+    - ./.vscode/**
+    - ./resources/**
+    - ./src/**
+    - ./.eslintrc.js
+    - ./.gitignore
+    - ./package.json
+    - ./README.md
+    - ./serverless.env.yml
+    - ./serverless.yml
+    - ./tsconfig.json
+    - ./node_modules/@types/aws-lambda
+    - ./node_modules/@types/hapi__joi
+    - ./node_modules/@types/node
+    - ./node_modules/@typescript-eslint/eslint-plugin
+    - ./node_modules/@typescript-eslint/parser
+    - ./node_modules/eslint
+    - ./node_modules/path
+    - ./node_modules/rimraf
+    - ./node_modules/sequelize-auto
+    - ./node_modules/serverless
+    - ./node_modules/serverless-api-gateway-caching
+    - ./node_modules/serverless-offline
+    - ./node_modules/serverless-prune-plugin
+    - ./node_modules/typescript
+
+functions:
+  api:
+    handler: src/handler.api
+    events:
+      - http:
+          path: pets
+          method: get
+          cors: true
+      - http:
+          path: pets/{id}
+          method: get
+          cors: true
+          caching:
+            enabled: false
+            cacheKeyParameters:
+              - name: request.querystring.cachetick
+              - name: request.header.Authorization
+      - http:
+          path: pets
+          method: post
+          cors: true
+      - http:
+          path: pets/{id}
+          method: patch
+          cors: true
+      - http:
+          path: pets/{id}
+          method: delete
+          cors: true
+

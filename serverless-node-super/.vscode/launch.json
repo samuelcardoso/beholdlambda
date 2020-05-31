@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug Backend",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "runtimeExecutable": "npm",
+        "timeout": 30000,
+        "env": {
+          "NODE_ENV": "test"
+        },
+        "runtimeArgs": [
+          "run-script",
+          "debug"
+        ],
+        "port": 9229,
+        "outputCapture": "std"
+      },
+      {
+        "name": "Debug Tests",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "runtimeExecutable": "npm",
+        "timeout": 30000,
+        "runtimeArgs": [
+          "run-script",
+          "test-debug"
+        ],
+        "port": 9229,
+        "outputCapture": "std"
+      }
+    ]
+  }
