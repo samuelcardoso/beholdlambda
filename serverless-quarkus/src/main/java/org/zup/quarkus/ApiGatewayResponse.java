@@ -5,8 +5,6 @@ import java.util.Base64;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-
 public class ApiGatewayResponse {
 
 	private final int statusCode;
@@ -42,8 +40,6 @@ public class ApiGatewayResponse {
 	}
 
 	public static class Builder {
-
-		private static final Logger LOG = Logger.getLogger(ApiGatewayResponse.Builder.class);
 
 		private int statusCode = 200;
 		private Map<String, String> headers = Collections.emptyMap();

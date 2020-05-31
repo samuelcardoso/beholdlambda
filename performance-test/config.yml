@@ -1,0 +1,9 @@
+config:
+    target: https://onadc285ih.execute-api.us-east-1.amazonaws.com/lab/
+    phases:
+      - duration: 60
+        arrivalRate: 50
+scenarios:
+- flow:
+    - get:
+        url: "/hello"
