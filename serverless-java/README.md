@@ -1,3 +1,3 @@
-mvn clear
+mvn clean
 mvn package
 serverless deploy
