@@ -5,7 +5,6 @@ import petRoutes from './business/pet/pet.route';
 import { OpenAPIInfo } from './utils/serverless-openapi';
 import OpenAPIHandler from './utils/serverless-openapi/handler';
 // import SequelizeUtils from './utils/sequelize.util';
-import RequestUtils from './utils/request.util';
 
 // const conn = SequelizeUtils.conn();
 const conn = {};
@@ -16,6 +15,13 @@ export const info: OpenAPIInfo = {
   title: 'Behold Lambda project',
   description: 'Boilerplate Lambda Project to let you rock',
   version: '1.0.0'
+};
+
+export const corsHeaders = {
+  'X-Requested-With': '*',
+  'Access-Control-Allow-Headers': '*',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': '*'
 };
 
 export async function api(event: Partial<APIGatewayProxyEvent>, context: Context): Promise<any> {
@@ -34,7 +40,7 @@ export async function api(event: Partial<APIGatewayProxyEvent>, context: Context
       statusCode,
       body,
       headers: {
-        ...RequestUtils.getCors(),
+        ...corsHeaders,
         ...headers
       }
     };
@@ -55,7 +61,7 @@ export async function api(event: Partial<APIGatewayProxyEvent>, context: Context
         ...(process.env.NODE_ENV === 'dev') ? { debug_error: JSON.stringify(err) } : undefined
       }),
       headers: {
-        ...RequestUtils.getCors()
+        ...corsHeaders
       }
     };
   }

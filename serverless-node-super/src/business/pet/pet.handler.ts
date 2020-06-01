@@ -1,8 +1,7 @@
 import * as _ from 'lodash';
 import * as Boom from '@hapi/boom';
-import { reply } from '../../utils/lambda.util';
 import PetService from './pet.service';
-import { HandlerEvent } from '../../utils/serverless-openapi';
+import { HandlerEvent, reply } from '../../utils/serverless-openapi';
 import { Context } from 'aws-lambda';
 
 export default class PetHandler {

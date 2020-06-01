@@ -69,6 +69,10 @@ functions:
     handler: src/handler.api
     events:
       - http:
+          path: apidocs
+          method: get
+          cors: true
+      - http:
           path: pets
           method: get
           cors: true
