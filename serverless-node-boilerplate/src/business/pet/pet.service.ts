@@ -12,12 +12,14 @@ export default class PetService {
     return inst;
   }
 
-  async getAllPets(_opts: any): Promise<Pet[]> {
+  /* tslint:disable:no-unused-variable */
+  async getAllPets(opts: any): Promise<Pet[]> {
     logger.info('Get all pets...');
     return [];
   }
 
-  async getPet(_id: number): Promise<Pet> {
+  /* tslint:disable:no-unused-variable */
+  async getPet(id: number): Promise<Pet> {
     logger.info('Get a pet...');
     return {
       id: 1,
@@ -25,7 +27,8 @@ export default class PetService {
     };
   }
 
-  async insertPet(_pet: any): Promise<Pet> {
+  /* tslint:disable:no-unused-variable */
+  async insertPet(pet: any): Promise<Pet> {
     logger.info('Insert a pet...');
     return {
       id: 1,
@@ -33,7 +36,8 @@ export default class PetService {
     };
   }
 
-  async updatePet(_pet: any): Promise<Pet> {
+  /* tslint:disable:no-unused-variable */
+  async updatePet(pet: any): Promise<Pet> {
     logger.info('Update a pet...');
     return {
       id: 1,
@@ -41,7 +45,8 @@ export default class PetService {
     };
   }
 
-  async deletePet(_id: number): Promise<Pet> {
+  /* tslint:disable:no-unused-variable */
+  async deletePet(id: number): Promise<Pet> {
     logger.info('Delete a pet...');
     return {
       id: 1,
