@@ -18,3 +18,17 @@ exports.hello =  async function(event, context) {
     })
   };
 }
+
+exports.longHello =  async function(event, context) {
+  context.callbackWaitsForEmptyEventLoop = false;
+  setTimeout(() => {
+    console.log('Run something later...')
+  }, 5000);
+  return {
+    statusCode: 200,
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify('Hello World')
+  };
+}

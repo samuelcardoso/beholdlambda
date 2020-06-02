@@ -13,4 +13,9 @@ functions:
       - http:
           path: hello
           method: get
-          cors: true
+  longHello:
+    handler: src/handler.longHello
+    events:
+      - http:
+          path: longhello
+          method: get
