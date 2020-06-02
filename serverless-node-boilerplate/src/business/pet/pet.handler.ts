@@ -10,7 +10,7 @@ export default class PetHandler {
     const id = pathParameters!['id'];
     const pet = await PetService.get(cache.conn).getPet(Number(id));
     if (!pet) {
-      throw Boom.notFound(`Pet id:${id} not found`);
+      throw Boom.notFound(`Pet id: ${id} not found`);
     }
     return reply(pet);
   }

@@ -4,7 +4,7 @@ plugins:
   - serverless-api-gateway-caching
   - serverless-prune-plugin
 
-service: beholder-node-super
+service: beholder-node-boilerplate
 
 custom:
   stage: ${opt:stage, 'lab'}

@@ -4,9 +4,7 @@ import { createLogger } from './utils/logger.util';
 import petRoutes from './business/pet/pet.route';
 import { OpenAPIInfo } from './utils/serverless-openapi';
 import OpenAPIHandler from './utils/serverless-openapi/handler';
-// import SequelizeUtils from './utils/sequelize.util';
 
-// const conn = SequelizeUtils.conn();
 const conn = {};
 const auth = {};
 const logger = createLogger('generic');
