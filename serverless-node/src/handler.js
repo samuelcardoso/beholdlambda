@@ -1,5 +1,4 @@
-export async function hello(event, context) {
-  context.callbackWaitsForEmptyEventLoop = false;
+exports.hello =  async function(event, context) {
   return {
     statusCode: 200,
     headers: {

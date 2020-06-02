@@ -1,10 +1,10 @@
-service: beholder-node-hello
+service: beholder-node-lab
 
 provider:
   name: aws
   region: us-east-1
   runtime: nodejs10.x
-  stage: local
+  stage: lab
 
 functions:
   hello:
