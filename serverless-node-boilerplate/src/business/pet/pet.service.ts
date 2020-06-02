@@ -12,13 +12,13 @@ export default class PetService {
     return inst;
   }
 
-  /* tslint:disable:no-unused-variable */
+  // eslint-disable-next-line
   async getAllPets(opts: any): Promise<Pet[]> {
     logger.info('Get all pets...');
     return [];
   }
 
-  /* tslint:disable:no-unused-variable */
+  // eslint-disable-next-line
   async getPet(id: number): Promise<Pet> {
     logger.info('Get a pet...');
     return {
@@ -27,7 +27,7 @@ export default class PetService {
     };
   }
 
-  /* tslint:disable:no-unused-variable */
+  // eslint-disable-next-line
   async insertPet(pet: any): Promise<Pet> {
     logger.info('Insert a pet...');
     return {
@@ -36,7 +36,7 @@ export default class PetService {
     };
   }
 
-  /* tslint:disable:no-unused-variable */
+  // eslint-disable-next-line
   async updatePet(pet: any): Promise<Pet> {
     logger.info('Update a pet...');
     return {
@@ -45,7 +45,7 @@ export default class PetService {
     };
   }
 
-  /* tslint:disable:no-unused-variable */
+  // eslint-disable-next-line
   async deletePet(id: number): Promise<Pet> {
     logger.info('Delete a pet...');
     return {
